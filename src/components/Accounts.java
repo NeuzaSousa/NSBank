@@ -4,9 +4,6 @@ public abstract class Accounts {
 	protected String label;
 	protected double balance;
 	protected static int accountNumber = 0;
-	// protected String name = Client.getName();
-	// protected String firstName = Client.setFirstName(firstName)
-	// Client client = new Client(String name, String firstName);
 
 	protected Accounts(Client client, String label) {
 		super();
@@ -26,8 +23,8 @@ public abstract class Accounts {
 		return (double) balance;
 	}
 
-	public void setBalance(double ammount) {
-		this.balance = ammount;
+	public void setBalance(Flow flow) {
+		// this.balance = flow;
 	}
 
 	public int getAccountNumber() {
