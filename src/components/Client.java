@@ -32,7 +32,7 @@ public class Client {
 		return clientNumber;
 	}
 
-	public static void setClientNumber(int clientNumber) {
+	public void setClientNumber(int clientNumber) {
 		Client.clientNumber = clientNumber;
 	}
 

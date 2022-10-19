@@ -3,13 +3,15 @@ package components;
 public abstract class Accounts {
 	protected String label;
 	protected double balance;
-	protected int accountNumber;
+	protected static int accountNumber = 0;
+	// protected String name = Client.getName();
+	// protected String firstName = Client.setFirstName(firstName)
+	// Client client = new Client(String name, String firstName);
 
-	public Accounts(String label) {
+	protected Accounts(Client client, String label) {
 		super();
 		this.label = label;
-		Client client = new Client(label, label);
-		this.accountNumber++;
+		Accounts.accountNumber++;
 	}
 
 	public String getLabel() {
@@ -20,11 +22,11 @@ public abstract class Accounts {
 		this.label = label;
 	}
 
-	public float getBalance() {
-		return (float) balance;
+	public double getBalance() {
+		return (double) balance;
 	}
 
-	public void setBalance(float ammount) {
+	public void setBalance(double ammount) {
 		this.balance = ammount;
 	}
 
@@ -33,11 +35,11 @@ public abstract class Accounts {
 	}
 
 	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
+		Accounts.accountNumber = accountNumber;
 	}
 
 	public String toString() {
-		return "Label: " + label + " Balance: " + balance + " Account Number: " + accountNumber;
+		return "Account Number: " + accountNumber + " Balance: " + balance;
 	}
 
 }
