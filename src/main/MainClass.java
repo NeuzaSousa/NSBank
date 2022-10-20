@@ -107,10 +107,9 @@ public class MainClass {
 		}
 
 		List<String> flow = new ArrayList<>();
-		flow.add("Comment: " + comment.toString() + " Identifyer: " + identifier.toString() + " Ammount: "
-				+ String.valueOf(ammount) + String.valueOf(targetAccountNumber) + " Effect: " + String.valueOf(effect)
-				+ " Date of Transaction: " + String.valueOf(dateOfFlow) + " Account Number: "
-				+ String.valueOf(accountNumber));
+		flow.add("Comment: " + comment + " Identifyer: " + identifier + " Ammount: " + ammount
+				+ " Target Account Number: " + targetAccountNumber + " Effect: " + effect + " Date of Transaction: "
+				+ dateOfFlow + " Account Number: " + accountNumber);
 		return flow;
 	}
 
