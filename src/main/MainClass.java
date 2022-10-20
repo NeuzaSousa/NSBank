@@ -83,7 +83,6 @@ public class MainClass {
 		accountInformation = new Hashtable<>();
 		accountInformation.put(account.getAccountNumber(), account.toString());
 		showHashtable(accountInformation);
-		// System.out.println(accountInformation);
 		return accountInformation;
 	}
 
