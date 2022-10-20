@@ -28,8 +28,8 @@ public abstract class Accounts {
 		String identifier = flow.getIdentifier();
 		double ammount = flow.getAmmount();
 		int targetAccountNumber = flow.getTargetAccountNumber();
-		// int accountNumber2 = transfer.getAccountNumber(); I was not able to get the
-		// account number from transfer class
+		int accountNumber2 = Transfer.getAccountNumber();
+
 		if ("debit".equals(identifier)) {
 			balance -= ammount;
 		} else if ("credit".equals(identifier)) {
@@ -37,8 +37,8 @@ public abstract class Accounts {
 		} else if ("transfer".equals(identifier)) {
 			if (accountNumber == targetAccountNumber) {
 				balance += ammount;
-				// } else if (accountNumber == accountNumber2) {
-				// balance -= ammount;
+			} else if (accountNumber == accountNumber2) {
+				balance -= ammount;
 			}
 		} else {
 			System.out.println("Something went wrong with the flow");

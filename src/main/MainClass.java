@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Set;
 
 import components.Accounts;
 import components.Client;
@@ -11,6 +12,7 @@ import components.Credit;
 import components.CurrentAccount;
 import components.Debit;
 import components.SavingsAccount;
+import components.Transfer;
 
 public class MainClass {
 	static Hashtable<Integer, String> accountInformation;
@@ -81,6 +83,7 @@ public class MainClass {
 		accountInformation = new Hashtable<>();
 		accountInformation.put(account.getAccountNumber(), account.toString());
 		showHashtable(accountInformation);
+		// System.out.println(accountInformation);
 		return accountInformation;
 	}
 
@@ -99,10 +102,9 @@ public class MainClass {
 			Debit debit = new Debit(comment, identifier, ammount, targetAccountNumber, effect, dateOfFlow);
 			Accounts.setBalance(debit);
 		} else if (identifier == "transfer") {
-			// Transfer transfer = new Transfer(comment, identifier, ammount,
-			// targetAccountNumber, effect, dateOfFlow, (int) accountNumber); could not able
-			// to add the optional parameter
-			// Accounts.setBalance(transfer);
+			Transfer transfer = new Transfer(comment, identifier, ammount, targetAccountNumber, effect, dateOfFlow,
+					accountNumber[0]);
+			Accounts.setBalance(transfer);
 		}
 
 		List<String> flow = new ArrayList<>();
@@ -114,10 +116,12 @@ public class MainClass {
 	}
 
 	static void updateAccounts(List<String> flow, Hashtable<Integer, String> accountInformation) {
-		// get currentbalance from accountInformation
-		// get identifier from flow to know if it's debit, credit or transfer
-		// get the ammount and account number from flow
-		// search for the accountNumber from f on accountInformation
-		// update accountInformation
+		double balance = Accounts.getBalance();
+		Set<Integer> setOfKeys = accountInformation.keySet();
+		for (Integer key : setOfKeys) {
+			// accountInformation.get(key).stream().filter(balance -> balance <
+			// 0).forEach(System.out::println); // this is not working
+		}
+
 	}
 }

@@ -71,8 +71,9 @@ public abstract class Flow {
 	}
 
 	public String toString() {
-		return "Comment: " + comment + " Identifier: " + identifier + "Ammount: " + ammount + " targetAccountNumber: "
-				+ targetAccountNumber + "effect: " + effect + " date of flow: " + dateOfFlow;
+		return "Comment: " + comment + " Identifier: " + identifier + " Ammount: " + ammount
+				+ " Target Account Number: " + targetAccountNumber + " Effect: " + effect + " Date of Flow: "
+				+ dateOfFlow;
 	}
 
 }
