@@ -1,17 +1,17 @@
 package components;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Flow {
 	private String comment;
-	private int identifier;
+	private String identifier;
 	private double ammount;
 	private int targetAccountNumber;
 	private boolean effect;
-	private Date dateOfFlow;
+	private LocalDate dateOfFlow;
 
-	protected Flow(String comment, int identifier, double ammount, int targetAccountNumber, boolean effect,
-			Date dateOfFlow) {
+	protected Flow(String comment, String identifier, double ammount, int targetAccountNumber, boolean effect,
+			LocalDate dateOfFlow) {
 		super();
 		this.comment = comment;
 		this.identifier = identifier;
@@ -19,6 +19,7 @@ public abstract class Flow {
 		this.targetAccountNumber = targetAccountNumber;
 		this.effect = effect;
 		this.dateOfFlow = dateOfFlow;
+
 	}
 
 	public String getComment() {
@@ -29,11 +30,11 @@ public abstract class Flow {
 		this.comment = comment;
 	}
 
-	public int getIdentifier() {
+	public String getIdentifier() {
 		return identifier;
 	}
 
-	public void setIdentifier(int identifier) {
+	public void setIdentifier(String identifier) {
 		this.identifier = identifier;
 	}
 
@@ -61,12 +62,17 @@ public abstract class Flow {
 		this.effect = effect;
 	}
 
-	public Date getDateOfFlow() {
+	public LocalDate getDateOfFlow() {
 		return dateOfFlow;
 	}
 
-	public void setDateOfFlow(Date dateOfFlow) {
+	public void setDateOfFlow(LocalDate dateOfFlow) {
 		this.dateOfFlow = dateOfFlow;
+	}
+
+	public String toString() {
+		return "Comment: " + comment + " Identifier: " + identifier + "Ammount: " + ammount + " targetAccountNumber: "
+				+ targetAccountNumber + "effect: " + effect + " date of flow: " + dateOfFlow;
 	}
 
 }

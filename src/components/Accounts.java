@@ -2,7 +2,7 @@ package components;
 
 public abstract class Accounts {
 	protected String label;
-	protected double balance;
+	protected static double balance;
 	protected static int accountNumber = 0;
 
 	protected Accounts(Client client, String label) {
@@ -19,12 +19,30 @@ public abstract class Accounts {
 		this.label = label;
 	}
 
-	public double getBalance() {
+	public static double getBalance() {
 		return (double) balance;
 	}
 
-	public void setBalance(Flow flow) {
-		// this.balance = flow;
+	public static void setBalance(Flow flow) {
+		System.out.println(flow.toString());
+		String identifier = flow.getIdentifier();
+		double ammount = flow.getAmmount();
+		int targetAccountNumber = flow.getTargetAccountNumber();
+		// int accountNumber2 = transfer.getAccountNumber(); I was not able to get the
+		// account number from transfer class
+		if ("debit".equals(identifier)) {
+			balance -= ammount;
+		} else if ("credit".equals(identifier)) {
+			balance += ammount;
+		} else if ("transfer".equals(identifier)) {
+			if (accountNumber == targetAccountNumber) {
+				balance += ammount;
+				// } else if (accountNumber == accountNumber2) {
+				// balance -= ammount;
+			}
+		} else {
+			System.out.println("Something went wrong with the flow");
+		}
 	}
 
 	public int getAccountNumber() {
